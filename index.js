@@ -2,7 +2,7 @@ import express from 'express';
 import userRouter from './router/user.route.js';
 import authRouter from './router/auth.route.js';
 import database from './config/database.js';
-import { verifyAdmin, verifyToken, verifyUser } from './middleware/verify.token.js';
+import { verifyAdmin, verifyHR, verifyToken, verifyUser } from './middleware/verify.token.js';
 
 const app= express();
 
@@ -14,6 +14,11 @@ app.use(express.json());
 
 app.use('/api',userRouter);
 app.use('/api',authRouter)
+
+
+app.get('/verify-user',verifyUser,(req,res)=>{
+      res.send("you are an HR")
+})
 
 
 

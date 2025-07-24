@@ -27,6 +27,16 @@ export const verifyUser = (req, res, next) => {
     })
 }
 
+export const verifyHR=(req, res, next) => {
+    verifyToken(req, res, () => {
+        if (req.user.role === "hr" || req.user.role === "admin") {
+            next()
+        } else {
+            return res.status(403).json({ message: "You are not authorized as hr" })
+        }
+    })
+}
+
 
 export const verifyAdmin = (req, res, next) => {
     verifyToken(req, res, () => {
