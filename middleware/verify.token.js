@@ -35,7 +35,7 @@ export const verifyHR=(req, res, next) => {
             return res.status(403).json({ message: "You are not authorized as hr" })
         }
     })
-}
+}   
 
 
 export const verifyAdmin = (req, res, next) => {

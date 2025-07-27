@@ -37,6 +37,13 @@ const UserSchema = new mongoose.Schema(
         profile:{
             type:String
         },
+        otp:{
+            type:Number,
+        },
+        verifed:{
+            type:Boolean,
+            default:false,
+        },
         createdAt: {
             type: Date,
             default: Date.now,
